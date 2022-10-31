@@ -6,17 +6,14 @@ using System.Threading.Tasks;
 
 namespace HashTable
 {
-    class FrequencyInLine
+    class FrequencyInLargeParagraph
     {
-        private const string V = " ";
-
-        public void freqPerWord()
+        public void frequency()
         {
-            string str = "To be or not to be";
+            string str = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
             string[] arr = str.Split();
             int size = arr.Length;
             MyMapNode<string, string> hash = new MyMapNode<string, string>(size - 1);
-
             foreach (var s in arr)
             {
                 if (hash.Get(s) != null)
@@ -29,11 +26,12 @@ namespace HashTable
                 else
                 {
                     hash.Add(s, "1");
+
                 }
             }
+
             printValues(arr, size, hash);
         }
-
         private static void printValues(string[] arr, int size, MyMapNode<string, string> hash)
         {
             Console.WriteLine("Frequency    Word");
