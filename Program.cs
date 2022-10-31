@@ -6,8 +6,8 @@
         {
             Console.WriteLine("Frequency Counter using Hash Table ");
 
-            FrequencyInLargeParagraph paragraph = new FrequencyInLargeParagraph();
-            paragraph.frequency();
+            RemoveWord delete = new RemoveWord();
+            delete.removeWord("avoidable");
         }
     }
 }
