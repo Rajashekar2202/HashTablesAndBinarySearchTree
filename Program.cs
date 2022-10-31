@@ -2,9 +2,11 @@
 {
     class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Hash Tabels and Binary Search Program");
+            Console.WriteLine("Frequency Counter using Hash Table ");
+            FrequencyInLine line = new FrequencyInLine();
+            line.freqPerWord();
         }
     }
 }
