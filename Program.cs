@@ -1,13 +1,15 @@
-﻿namespace HashTable
+﻿namespace BinarySearchTree
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Frequency Counter using Hash Table ");
+            Console.WriteLine("Welcome to HashTable and BinarySearch Tree");
 
-            RemoveWord delete = new RemoveWord();
-            delete.removeWord("avoidable");
+            BinarySearchTree<int> binarySearch = new BinarySearchTree<int>(56);
+            binarySearch.Insert(30);
+            binarySearch.Insert(70);
+            binarySearch.Display();
         }
     }
 }

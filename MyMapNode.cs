@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HashTable
+namespace BinarySearchTree
 {
     public class MyMapNode<K, V>
     {
         private readonly int size;
         private readonly LinkedList<KeyValue<K, V>>[] items;
-
         public MyMapNode(int size)
         {
             this.size = size;
@@ -18,7 +17,7 @@ namespace HashTable
         }
         public void Add(K key, V value)
         {
-            int position = GetArrayPosition(key);  // |-5| =5 |3|=3 |-3|=3
+            int position = GetArrayPosition(key);
             LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
             KeyValue<K, V> item = new KeyValue<K, V>() { Key = key, Value = value };
             linkedList.AddLast(item);
@@ -43,11 +42,12 @@ namespace HashTable
                 linkedList.Remove(foundItem);
             }
         }
+
+
         public V Get(K key)
         {
             int position = GetArrayPosition(key);
             LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
-
             foreach (KeyValue<K, V> item in linkedList)
             {
                 if (item.Key.Equals(key))
@@ -57,6 +57,7 @@ namespace HashTable
             }
             return default(V);
         }
+
         protected int GetArrayPosition(K key)
         {
             int position = key.GetHashCode() % size;
@@ -66,7 +67,6 @@ namespace HashTable
         protected LinkedList<KeyValue<K, V>> GetLinkedList(int position)
         {
             LinkedList<KeyValue<K, V>> linkedList = items[position];
-
             if (linkedList == null)
             {
                 linkedList = new LinkedList<KeyValue<K, V>>();
@@ -75,7 +75,6 @@ namespace HashTable
             return linkedList;
         }
     }
-
     public struct KeyValue<k, v>
     {
         public k Key { get; set; }
